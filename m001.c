@@ -1,54 +1,60 @@
-/ * m001.c - o melhor de dois.
-   Este programa usa três números inteiros lidos como comando 
-   argumentos de linha e gera o maior dentre eles.
-   Por exemplo
-      linha de comando: m001 5 20 7
-      produção esperada: 20
-   Instruções:
-      Por favor, edite a função greatest ();
-      não mude a função main ().
- * /
+/* m001.c - Greatest of two.
 
-# include  < stdio.h >
-# include  < stdlib.h >
+   This program takes three integers read as command 
+   line arguments and outputs the greatest among them.
 
-# Definir  USO  " m001 <num1> <num2> <NUM3> \ n "
+   E.g.
 
-/ * Retorna o maior entre a, bec. * /
+      command line    : m001 5 20 7
+      expected output : 20
 
-int  maior ( int a, int b, int c)
+   Directions:
+
+      Please, edit function greatest();
+      do no not change function main().
+
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define USAGE "m001 <num1> <num2> <num3>\n"
+
+/* Return the greatest among a, b and c. */
+
+int greatest (int a, int b, int c)
 {
-  if (a> b && a> c) {
-    retornar a;
+	if (a> b && a> c) {
+    	return a;
   }
-  if (b> a && b> c) {
-    retorno b;
+  	if (b> a && b> c) {
+    	return b;
   }
-  if (c> b && c> a) {
-    retornar c;
+  	if (c> b && c> a) {
+    	return c;
   }
 }
 
-/ * Não edite esta função. * /
+/* Do not edit this function. */
 
-int  main ( int argc, char ** argv)
+int main (int argc, char **argv)
 {
   int a, b, c;
   int g;
 
-  if (argc < 4 )
+  if (argc < 4)
     {
       printf (USAGE);
-      saída ( 1 );
+      exit(1);
     }
   
-  a = atoi (argv [ 1 ]);
-  b = atoi (argv [ 2 ]);
-  c = atoi (argv [ 3 ]);
+  a = atoi(argv[1]);
+  b = atoi(argv[2]);
+  c = atoi(argv[3]);
 
-  g = maior (a, b, c);
+  g = greatest (a, b, c);
   
-  printf ( " % d \ n " , g);
+  printf ("%d\n", g);
   
-  retornar  0 ;
+  return 0;
 }
