@@ -21,11 +21,63 @@
 
 #define MAX 100
 
+int vecLen(int *vec)
+{
+  int c = -1;
+  while(*(vec++))
+    c++;
+  return c;
+}
+
 /* Sort the first 'n' integers values in 'vector'. */
 
 void sort (int* vector, int n)
 {
+  if (n < 1){
+    return;
+  }
+  int cont = 0;
+  int i=0; 
+  int ii = 0;
+  int v = MAX;
+  int tam = vecLen(vector); 
+  int newVec[tam+1];
+
+  if (tam != 1)
+  {
+    while(i != tam-2)
+    {
+      if (v != MAX)
+      {
+        v=MAX;
+      }
+      for(ii=0; ii<tam-1; ii++)
+      {
+        if(v >=vector[ii] )
+        {
+          v = vector[ii]; 
+        }
+      }
+      for(ii=0; ii<tam-1; ii++)
+      { 
+        if(v ==vector[ii] && cont !=1)
+        {
+          vector[ii]=101;
+          cont=1;
+        }
+      } 
+      cont = 0; 
+      newVec[i]=v; 
+      i++;
+    }
+    for(i=0; i<tam-1; i++)
+    {
+      vector [i]=0;
+      vector [i] = newVec[i];
+    }
+  }
 }
+
 
 #define USAGE "m009 <num1> <nun2> ... \n"
 
