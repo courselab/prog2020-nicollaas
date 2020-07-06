@@ -21,7 +21,7 @@
 
 #define MAX 100
 
-int vecLen(int *vec)
+int vec_len(int *vec)
 {
   int c = -1;
   while(*(vec++))
@@ -40,7 +40,7 @@ void sort (int* vector, int n)
   int i=0; 
   int ii = 0;
   int v = MAX;
-  int tam = vecLen(vector); 
+  int tam = vec_len(vector); 
   int newVec[tam+1];
 
   if (tam != 1)
