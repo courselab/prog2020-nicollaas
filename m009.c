@@ -21,59 +21,23 @@
 
 #define MAX 100
 
-int vec_len(int *vec)
-{
-  int c = -1;
-  while(*(vec++))
-    c++;
-  return c;
-}
+
 
 /* Sort the first 'n' integers values in 'vector'. */
 
 void sort (int* vector, int n)
 {
-  if (n < 1){
-    return;
-  }
-  int cont = 0;
-  int i=0; 
-  int ii = 0;
-  int v = MAX;
-  int tam = vec_len(vector); 
-  int newVec[tam+1];
-
-  if (tam != 1)
+  int i, k, a;                              
+  for (i = 0; i < n; i++)                     
   {
-    while(i != tam-2)
+    for (k = 0; k < n - i - 1; k++)           
     {
-      if (v != MAX)
+      if (vector[k] > vector[k+1])            
       {
-        v=MAX;
+        a = vector[k];
+        vector [k] = vector [k+1];
+        vector [k+1] = a;                   
       }
-      for(ii=0; ii<tam-1; ii++)
-      {
-        if(v >=vector[ii] )
-        {
-          v = vector[ii]; 
-        }
-      }
-      for(ii=0; ii<tam-1; ii++)
-      { 
-        if(v ==vector[ii] && cont !=1)
-        {
-          vector[ii]=101;
-          cont=1;
-        }
-      } 
-      cont = 0; 
-      newVec[i]=v; 
-      i++;
-    }
-    for(i=0; i<tam-1; i++)
-    {
-      vector [i]=0;
-      vector [i] = newVec[i];
     }
   }
 }
