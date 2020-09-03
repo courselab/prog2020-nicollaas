@@ -21,11 +21,27 @@
 
 #define MAX 100
 
+
+
 /* Sort the first 'n' integers values in 'vector'. */
 
 void sort (int* vector, int n)
 {
+  int i, k, a;                              
+  for (i = 0; i < n; i++)                     
+  {
+    for (k = 0; k < n - i - 1; k++)           
+    {
+      if (vector[k] > vector[k+1])            
+      {
+        a = vector[k];
+        vector [k] = vector [k+1];
+        vector [k+1] = a;                   
+      }
+    }
+  }
 }
+
 
 #define USAGE "m009 <num1> <nun2> ... \n"
 
